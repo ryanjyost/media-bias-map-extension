@@ -1,15 +1,49 @@
 {
   "manifest_version": 2,
-
   "name": "Media Bias Map",
-  "description": "Extension",
+  "short_name": "Media Bias Map",
+  "author": "Ryan Yost",
+  "description": "Rate and add items to the Media Bias Map",
   "version": "1.0",
 
+  "content_scripts": [
+    {
+      "matches": ["http://www.google.com/*"],
+      "css": ["main.css"]
+    }
+  ],
+
+
+  "background": {
+    "scripts": ["eventPage.js"],
+    "persistent": true
+  },
+
   "browser_action": {
-   "default_icon": "icon.png",
+   "default_icon": "mbm-icon.png",
    "default_popup": "popup.html"
   },
+
   "permissions": [
-   "activeTab"
-   ]
+     "activeTab",
+     "http://*/*",
+      "https://*/*",
+      "identity",
+      "identity.email"
+   ],
+
+  "icons": {
+          "16": "mbm-icon16.png",
+           "48": "mbm-icon48.png",
+          "128": "mbm-icon.png"
+  },
+
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnXpQJyTAH+5sai0krUCEV2fd1qNIc62SM1BAk6fqmc7gaMnTuCeJI6Fdyc+zLAZImIzFSrUr+H/I4hXawUCv0scesGv1kgYvXxqc8v87LNwNvsLl8KdTO9sRjwSd6dY24EMtrUjZLBad0Me8PGEftcwXwXUpoU3NmNZgcjQQcp4zvYiSAEytgY28q/uO08L278zNNC0cN2ymybAi7UaoPP8WwZF2ZJckAGJ/qPEMm+jW80f+MBzjMd1MdRhHNAs86KSbOE+gRphOa9aIy2VfM/lf5bNnUbxlJYHVxx9X8hL/EOuKV09NLBoQoE1xkFECf00xxC1MX/8FQQdj3KRScQIDAQAB",
+
+  "oauth2": {
+    "client_id": "620720641935-oubnabjmlb8qnen9dsautk7tc5map7tr.apps.googleusercontent.com",
+    "scopes": [
+      "https://www.googleapis.com/auth/userinfo.profile "
+    ]
+  }
 }

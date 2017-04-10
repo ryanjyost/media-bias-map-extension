@@ -1,0 +1,182 @@
+h4{
+	font-family: 'Lato', sans-serif;
+	font-weight: 400;
+}
+
+
+#popup{
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+	font-family: 'Lato', sans-serif;
+	font-weight: 100;
+	background-color: #fafafa;
+	width: 259px;
+	height:  300px;
+}
+
+#site-link{
+	text-align: center;
+	padding: 10px;
+
+}
+
+	#site-link a:focus{
+		outline: none !important;
+		text-decoration: none;
+		color: #585858;
+	}
+
+	#site-link a:hover{
+		outline: none !important;
+		text-decoration: underline;
+	}
+
+		.container{
+			padding: 0px 0px 0px 0px;
+			margin: 0px 0px 0px 0px;
+		}
+
+		/*=============================
+		Map
+		*/
+
+		#map-cont{
+			display: none;
+			border-radius: 5px;
+			width: 259px;
+			margin: auto;
+		}
+
+		#grid{}
+
+			.row{
+				height: 50px;
+				width: 300px;
+				margin: 0px;
+			}
+
+				#filter-row{
+
+				}
+
+				#filter-row h5{
+					text-align: center;
+				}
+
+
+			.box{
+				width: 50px;
+				height: 50px;
+				display: inline-block;
+				border-color: #e6e6e6 #f2f2f2 #e6e6e6 #f2f2f2;
+				border-width: 1px 1px 1px 1px;
+				border-style: solid;
+			}
+				.box:hover{
+					cursor: pointer;
+				}
+
+				.box-top{
+					background-color: #fafafa;
+					text-align: center;
+					vertical-align: middle;
+					font-size: 9px;
+					color: #333333;
+    				line-height: 50px;
+				}
+
+				#x1y1, #x5y1{
+					text-align: center;
+					vertical-align: top;
+					line-height: 50px;
+					font-size: 12px;
+					height: 50px;
+					color: #fff;
+					opacity: .2;
+					z-index: -1;
+				}
+
+					.box-top:hover{
+						background-color: #f2f2f2;
+					}
+
+				.box-empty{
+					border: none;
+				}
+
+			#row1{
+				background-image:  url("../images/speculation.png");
+				background-repeat: no-repeat;
+				background-size: 260px 50px;
+			}
+			#row2{
+				background-image:  url("../images/opinion.png");
+				background-repeat: no-repeat;
+				background-size: 260px 50px;
+			}
+		/* 	#row3{
+				background-image:  url("../images/commentary.png");
+				background-repeat: no-repeat;
+				background-size: 260px 50px;
+			} */
+			#row3{
+				background-image:  url("../images/analysis.png");
+				background-repeat: no-repeat;
+				background-size: 260px 50px;
+			}
+
+
+				#x0y0{
+					font-size: 12px;
+					text-align: center;
+					width: 258px;
+					line-height: 35px;
+					background-color: #848484;
+				    color: #fff;
+				    height: 35px;
+					border-color: #e6e6e6 #f2f2f2 #e6e6e6 #f2f2f2;
+					border-width: 1px 1px 1px 1px;
+					border-style: solid;
+					font-style: normal;
+				}
+					#x0y0:hover{
+						background-color:#6e6e6e;
+						cursor: pointer;
+					}
+
+	#topic-select{
+		margin: auto;
+		height: 30px;
+		width: 100%;
+		font-size: 12px;
+		padding: 0px 5px;
+		display: none;
+		border: none;
+		font-family: 'Lato', sans-serif;
+	}
+
+	#sign-into-chrome, #post-submit-success{
+		display: none;
+		text-align: center;
+		padding: 5px;
+	}
+
+	#sign-up{
+		display: none;
+		text-align: center;
+		padding: 15px;
+	}
+
+		#sign-up-btn{
+			font-weight: 900;
+			background-color:  #A9D0F5;
+			text-decoration: none;
+			color: #fff;
+			padding: 10px 20px;
+			font-size: 20px;
+			margin: 20px 0px 0px 0px;
+			border-radius: 25px;
+		}
+
+
+

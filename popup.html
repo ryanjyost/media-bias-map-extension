@@ -1,11 +1,72 @@
 <!doctype html>
 <html>
   <head>
-    <title>GTmetrix Analyzer</title>
+    <title>Media Bias Map</title>
     <script src="popup.js"></script>
+    <link rel="stylesheet" type="text/css" href="main.css">
+	 <link href="https://fonts.googleapis.com/css?family=Lato:900|Lato:300" rel="stylesheet">
+	<script src="jquery-3.2.0.min">
+	</script>
   </head>
-  <body>
-    <h1>GTmetrix Analyzer</h1>
-    <button id="checkPage">Check this page now!</button>
+  <body id="popup">
+    <div class="container">
+    	<div id="site-link"><a href="http://www.mediabiasmap.com/" target="_blank">MediaBiasMap.com</a></div>
+
+      <!-- Message to sign into Chrome if not already -->
+      <div id="sign-into-chrome">
+       <h2>Click the icon in the top-right corner of your browser to sign in to Chrome.</h2>
+       <h4> You need to be signed in to Chrome to add media to Media Bias Map </h4>
+      </div>
+
+       <!-- Message after submit post -->
+      <div id="post-submit-success">
+       <h2>Added to Media Bias Map!</h2>
+      </div>
+
+      <!-- Message to register with MBM if not already -->
+      <div id="sign-up">
+
+        <h2>Want to rate media for Media Bias Map?</h2><br>
+
+        <a id="sign-up-btn" href="http://localhost:3000/auth/super-secret-signup" target="_blank">
+          Sign Up
+        </a>
+
+        <br><br>
+
+        <h4> Once you're registered on Media Bias Map, <strong>using the same google profile you use for Chrome</strong>, you'll be able to use this extension. </h4>
+
+      </div>
+
+    <div id="map-cont">
+			<div id="grid">
+			  <div id="row4" class="row">
+			    <div id="x1y4" class="box box-top">News</div><div id="x2y4" class="box box-top">Facts</div><div id="x3y4" class="box box-top">Stats</div><div id="x4y4" class="box box-top">Interview</div><div id="x5y4" class="box box-top">Other</div>
+			  </div>
+
+			  <div id="row3" class="row">
+			  	<div id="x1y3" class="box"></div><div id="x2y3" class="box"></div><div id="x3y3" class="box"></div><div id="x4y3" class="box"></div><div id="x5y3" class="box"></div>
+			  </div>
+
+			  <div id="row2" class="row">
+			    <div id="x1y2" class="box"></div><div id="x2y2" class="box"></div><div id="x3y2" class="box"></div><div id="x4y2" class="box"></div><div id="x5y2" class="box"></div>
+			  </div>
+
+			  <div id="row1" class="row">
+			    <div id="x1y1" class="box"><span id="left">Left</span></div><div id="x2y1" class="box"></div><div id="x3y1" class="box"></div><div id="x4y1" class="box"></div><div id="x5y1" class="box"><span id="right">Right</span></div>
+		  	  </div>
+
+			  <div id="x0y0" class="row box box-top">FAKE NEWS</div>
+			</div>
+		</div>
+
+    <select type="select" id="topic-select" name="addTopic" placeholder="Assign it to a topic" value="">
+      <option value="" selected disabled>Related to one of these recent topics?</option>
+      <option id="topic1" value=""></option>
+      <option id="topic2" value=""></option>
+      <option id="topic3" value=""></option>
+    </select>
+
+	</div><!-- container -->
   </body>
 </html>
