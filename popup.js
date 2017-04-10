@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	//check if user is a user on Media Bias MAp
 	chrome.identity.getProfileUserInfo(function(userInfo) {
 	 var xhr = new XMLHttpRequest();
-			xhr.open("GET", "http://localhost:3000/api/user?google.id="+ userInfo.id , true);
+			xhr.open("GET", "https://media-bias-map.herokuapp.com/api/user?google.id="+ userInfo.id , true);
 
 			xhr.onreadystatechange = function() {
 		  	if (xhr.readyState == 4) {
@@ -32,11 +32,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	});
 
-
-
-	var topicsArray = []
-
 	//set topic select options to recent topics from XML request
+	var topicsArray = []
 	var select = document.getElementById('topic-select');
 	var options = select.options;
 
