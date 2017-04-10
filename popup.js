@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 		      //create form to send webpage data
 		      var f = d.createElement('form');
-		      f.action = 'http://localhost:3000/api/post';
+		      f.action = 'https://media-bias-map.herokuapp.com/api/post';
 		      f.method = 'post';
 
 		      //add current URL to the form
