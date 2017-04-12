@@ -160,8 +160,12 @@ h4{
 		text-align: center;
 		display: block;
 		height: 20px;
-		line-height: 25px;
+		line-height: 28px;
+		text-decoration: none;
 	}
+		#helper-text:hover{
+			text-decoration: underline;
+		}
 
 		#sign-up-btn{
 			font-weight: 900;
@@ -176,14 +180,57 @@ h4{
 
 
 
+/* Topic List */
 #topic-list-container{
 	display: none;
 	font-family: 'Lato', sans-serif;
+	width: 259px;
+	padding: 0px 10px 0px 0px;
 }
 
-	#topic-list{
+	#topic-list-container h3{
+		text-align: center;
+		color: #585858;
 		display: block;
 	}
+
+	#topic-list-container ul{
+		display: block;
+		width: 100%;
+		padding: 0px 20px 0px 20px !important;
+		-webkit-padding-start: 0px !important;
+	}
+
+		#topic-list li{
+			list-style-type: none;
+			width: 209px;
+			background-color: #fff;
+			margin: auto;
+			margin-bottom: 5px;
+			height: 30px;
+			line-height: 30px;
+			display: block;
+			font-size: 16px;
+			border: 1px solid #f2f2f2;
+			padding: 0px 15px;
+			font-weight: 900;
+			border-radius: 3px;
+		}
+
+		#topic-list li:hover{
+			cursor: pointer;
+			border: 1px solid #a4a4a4;
+		}
+
+		#cancel-topic{
+			background-color: #F5A9BC !important;
+			color: #fff;
+		}
+
+		#no-topic{
+			background-color: #585858 !important;
+			color: #fff;
+		}
 
 
 
