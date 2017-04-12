@@ -4,9 +4,8 @@
     <title>Media Bias Map</title>
     <script src="popup.js"></script>
     <link rel="stylesheet" type="text/css" href="main.css">
-	 <link href="https://fonts.googleapis.com/css?family=Lato:900|Lato:300" rel="stylesheet">
-	<script src="jquery-3.2.0.min">
-	</script>
+	  <link href="https://fonts.googleapis.com/css?family=Lato:900|Lato:300" rel="stylesheet">
+	  <script src="jquery-3.2.0.min"></script>
   </head>
   <body id="popup">
     <div class="container">
@@ -14,14 +13,10 @@
 
       <!-- Message to sign into Chrome if not already -->
       <div id="sign-into-chrome">
-       <h2>Click the icon in the top-right corner of your browser to sign in to Chrome.</h2>
-       <h4> You need to be signed in to Chrome to add media to Media Bias Map </h4>
+         <h2>Click the icon in the top-right corner of your browser to sign in to Chrome.</h2>
+         <h4> You need to be signed in to Chrome to add media to Media Bias Map</h4>
       </div>
-
-       <!-- Message after submit post -->
-      <div id="post-submit-success">
-       <h2>Added to Media Bias Map!</h2>
-      </div>
+      <!--===============================================-->
 
       <!-- Message to register with MBM if not already -->
       <div id="sign-up">
@@ -34,10 +29,13 @@
 
         <br><br>
 
-        <h4> Once you're registered on Media Bias Map, <strong>using the same google profile you use for Chrome</strong>, you'll be able to use this extension. </h4>
+        <h3><strong><u>Use the same google profile you're using for Chrome!!!</u></strong></h3>
 
       </div>
+      <!--===============================================-->
 
+
+    <!-- Map for rating the current tab's content -->
     <div id="map-cont">
 			<div id="grid">
 			  <div id="row4" class="row">
@@ -58,16 +56,29 @@
 
 			  <div id="x0y0" class="row box box-top">FAKE NEWS</div>
 			</div>
-		</div>
 
-    <select type="select" id="topic-select" name="addTopic" placeholder="Assign it to a topic" value="">
-      <option value="" selected disabled>Related to one of these recent topics?</option>
-      <option id="topic1" value=""></option>
-      <option id="topic2" value=""></option>
-      <option id="topic3" value=""></option>
-      <option id="topic4" value=""></option>
-      <option id="topic5" value=""></option>
-    </select>
+      <a href="http://www.mediabiasmap.com/how-the-chrome-extension-works" target="_blank" id="helper-text">How to use this Chrome Extension</a>
+		</div>
+    <!--===============================================-->
+
+    <div id="topic-list-container">
+
+        <ul id="topic-list">
+          <li class="topic">Topic</li>
+          <li class="topic">Topic</li>
+          <li class="topic">Topic</li>
+          <li class="topic">Topic</li>
+          <li class="topic">Topic</li>
+        </ul>
+
+    </div>
+
+
+    <!-- Message after submit post -->
+      <div id="post-submit-success">
+       <h2>Added to Media Bias Map!</h2>
+      </div>
+    <!--===============================================-->
 
 	</div><!-- container -->
   </body>

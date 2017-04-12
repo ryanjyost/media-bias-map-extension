@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-
 	//check if user is a user on Media Bias MAp
 	chrome.identity.getProfileUserInfo(function(userInfo) {
 	 var xhr = new XMLHttpRequest();
@@ -9,8 +8,6 @@ document.addEventListener('DOMContentLoaded', function() {
 			xhr.onreadystatechange = function() {
 		  	if (xhr.readyState == 4) {
 			    var resp = JSON.parse(xhr.response);
-			    console.log(userInfo)
-
 
 			    if(!userInfo.id){
 			    	document.getElementById('sign-into-chrome').style.display = 'block';
@@ -23,8 +20,142 @@ document.addEventListener('DOMContentLoaded', function() {
 			    else{
 
 			    	document.getElementById('map-cont').style.display = 'block';
-			    	document.getElementById('topic-select').style.display = 'block';
-			    }
+
+
+			    	//get all the boxes in the grid
+						var boxList = document.getElementsByClassName("box");
+
+						for(var j=0; j < boxList.length; j++){
+
+							boxList[j].addEventListener('click', function() {
+							    var id = event.target.id;
+
+							    chrome.tabs.getSelected(null, function(tab) {
+							      d = document;
+
+							      //======================================
+							      //create form to send to Media Bias Map API
+							      var f = d.createElement('form');
+							      f.action = 'https://media-bias-map.herokuapp.com/api/post';
+							      f.method = 'post';
+
+							      //add current URL to the form
+							      var inputURL = d.createElement('input');
+									      inputURL.type = 'hidden';
+									      inputURL.name = 'url';
+									      inputURL.value = tab.url;
+
+								  	//add id / coordinates on grid to form
+							      var coordinates = d.createElement('input');
+									      coordinates.type = 'hidden';
+									      coordinates.name = 'xy';
+									      coordinates.value = id;
+
+								  	var addedById = d.createElement('input');
+								  			addedById.type = 'hidden';
+								  			addedById.name = 'addedById';
+								  			addedById.value = userInfo.id
+
+								  	//add inputs to form
+							      f.appendChild(inputURL);
+							      f.appendChild(coordinates);
+							      f.appendChild(addedById);
+
+							      //transition to next step
+							      document.getElementById('map-cont').style.display = 'none';
+
+							      document.getElementById('topic-list-container').style.display = 'block';
+
+
+								      //=====================
+								      //Add a topic
+
+									  	// var topic = d.createElement('input');
+									  	// 		topic.type = 'hidden';
+									  	// 		topic.name = 'topic';
+									  	// 		topic.value = document.getElementById('topic-select').value;
+
+
+
+
+
+
+
+
+
+						      //f.appendChild(topic);
+
+						      console.log('=====================')
+						      console.log(f)
+						      console.log('=====================')
+
+
+							      d.body.appendChild(f);
+							      //f.submit();
+
+
+								    // document.getElementById('post-submit-success').style.display = 'block';
+
+							    });
+							}, false);
+						}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			    } //end else
 		  	} //end xhr readyState == 4 conditional
 			}
 
@@ -32,10 +163,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	});
 
-	//set topic select options to recent topics from XML request
+	//set topic select options to recent topics
 	var topicsArray = []
-	var select = document.getElementById('topic-select');
-	var options = select.options;
+	var options = document.getElementsByClassName('topic');
 
 	var xhr = new XMLHttpRequest();
 
@@ -47,7 +177,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 			    for(var option = 1; option < options.length; option++){
 						options[option].innerHTML = topicsArray[option-1].name
-						options[option].value = topicsArray[option-1].name
 					}
 		  	}
 			}
@@ -96,56 +225,64 @@ document.addEventListener('DOMContentLoaded', function() {
 
 		//============================================
 		//send AJAX request on click
-		boxList[j].addEventListener('click', function() {
-		    var id = event.target.id;
+		// boxList[j].addEventListener('click', function() {
+		//     var id = event.target.id;
 
-		    chrome.tabs.getSelected(null, function(tab) {
-		      d = document;
+		//     chrome.tabs.getSelected(null, function(tab) {
+		//       d = document;
 
-		      //create form to send webpage data
-		      var f = d.createElement('form');
-		      f.action = 'https://media-bias-map.herokuapp.com/api/post';
-		      f.method = 'post';
+		//       //create form to send webpage data
+		//       var f = d.createElement('form');
+		//       f.action = 'https://media-bias-map.herokuapp.com/api/post';
+		//       f.method = 'post';
 
-		      //add current URL to the form
-		      var inputURL = d.createElement('input');
-				      inputURL.type = 'hidden';
-				      inputURL.name = 'url';
-				      inputURL.value = tab.url;
+		//       //add current URL to the form
+		//       var inputURL = d.createElement('input');
+		// 		      inputURL.type = 'hidden';
+		// 		      inputURL.name = 'url';
+		// 		      inputURL.value = tab.url;
 
-			  	//add id / coordinates on grid to form
-		      var coordinates = d.createElement('input');
-				      coordinates.type = 'hidden';
-				      coordinates.name = 'xy';
-				      coordinates.value = id;
+		// 	  	//add id / coordinates on grid to form
+		//       var coordinates = d.createElement('input');
+		// 		      coordinates.type = 'hidden';
+		// 		      coordinates.name = 'xy';
+		// 		      coordinates.value = id;
 
-			  	var hostName = d.createElement('input');
-				  	  hostName.type = 'hidden';
-				  	  hostName.name = 'hostName';
-				  	  hostName.value =  window.location.hostname;
+		// 	  	var hostName = d.createElement('input');
+		// 		  	  hostName.type = 'hidden';
+		// 		  	  hostName.name = 'hostName';
+		// 		  	  hostName.value =  window.location.hostname;
 
-			  	var topic = d.createElement('input');
-			  			topic.type = 'hidden';
-			  			topic.name = 'topic';
-			  			topic.value = document.getElementById('topic-select').value;
+		// 	  	var topic = d.createElement('input');
+		// 	  			topic.type = 'hidden';
+		// 	  			topic.name = 'topic';
+		// 	  			topic.value = document.getElementById('topic-select').value;
 
-
-			  //add inputs to form
-	      f.appendChild(inputURL);
-	      f.appendChild(coordinates);
-	      f.appendChild(hostName);
-	      f.appendChild(topic);
+		// 	  	var addedBy = d.createElement('input');
+		// 	  			addedBy.type = 'hidden';
+		// 	  			addedBy.name = 'addedBy';
+		// 	  			addedBy.value =
 
 
-		      d.body.appendChild(f);
-		      f.submit();
 
-		      document.getElementById('map-cont').style.display = 'none';
-			    document.getElementById('topic-select').style.display = 'none';
-			    document.getElementById('post-submit-success').style.display = 'block';
 
-		    });
-		}, false);
+
+		// 	  //add inputs to form
+	 //      f.appendChild(inputURL);
+	 //      f.appendChild(coordinates);
+	 //      f.appendChild(hostName);
+	 //      f.appendChild(topic);
+
+
+		//       d.body.appendChild(f);
+		//       f.submit();
+
+		//       document.getElementById('map-cont').style.display = 'none';
+		// 	    document.getElementById('topic-select').style.display = 'none';
+		// 	    document.getElementById('post-submit-success').style.display = 'block';
+
+		//     });
+		// }, false);
 
 
 		//=====================================================
@@ -195,7 +332,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			    		currBox.style.backgroundColor = currBoxColor;
 		    		}
 		    	}
-			}
+				}
 		  }, false);
 
 

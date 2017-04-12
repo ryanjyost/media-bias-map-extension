@@ -144,17 +144,6 @@ h4{
 						cursor: pointer;
 					}
 
-	#topic-select{
-		margin: auto;
-		height: 30px;
-		width: 100%;
-		font-size: 12px;
-		padding: 0px 5px;
-		display: none;
-		border: none;
-		font-family: 'Lato', sans-serif;
-	}
-
 	#sign-into-chrome, #post-submit-success{
 		display: none;
 		text-align: center;
@@ -167,6 +156,13 @@ h4{
 		padding: 15px;
 	}
 
+	#helper-text{
+		text-align: center;
+		display: block;
+		height: 20px;
+		line-height: 25px;
+	}
+
 		#sign-up-btn{
 			font-weight: 900;
 			background-color:  #A9D0F5;
@@ -177,6 +173,17 @@ h4{
 			margin: 20px 0px 0px 0px;
 			border-radius: 25px;
 		}
+
+
+
+#topic-list-container{
+	display: none;
+	font-family: 'Lato', sans-serif;
+}
+
+	#topic-list{
+		display: block;
+	}
 
 
 
