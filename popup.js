@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			    var resp = JSON.parse(xhr.response);
 			    topicsArray = resp.results.reverse();
 
-			    for(var option = 0; option <= options.length; option++){
+			    for(var option = 0; option <= 5; option++){
 						options[option].innerHTML = topicsArray[option].name
 					}
 		  	}
