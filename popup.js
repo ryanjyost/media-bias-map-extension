@@ -94,10 +94,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 									  			f.appendChild(topicInput);
 
-									  			console.log('=====================')
-										      console.log(f)
-										      console.log('=====================')
-
 										       //SUBMIT THE FORM
 											    d.body.appendChild(f);
 										      f.submit();
