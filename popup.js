@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
 
 	//========================================================
-	// User authentication and submitting sending link to API
+	// User authentication and sending link to API
 	//========================================================
 
 	//get Chrome user info and use for adding piece of media
@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function() {
 								      		var topic = ''
 
 								      		if(event.target.id=='no-topic'){
-								      			topic = ''
+								      			topic = 'none'
 								      		} else{
 								      			topic = event.target.innerHTML
 								      		}
@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			    var resp = JSON.parse(xhr.response);
 			    topicsArray = resp.results.reverse();
 
-			    for(var option = 0; option <= 4; option++){
+			    for(var option in topicsArray){
 						options[option].innerHTML = topicsArray[option].name
 					}
 		  	}
@@ -180,67 +180,6 @@ document.addEventListener('DOMContentLoaded', function() {
 		var boxList = document.getElementsByClassName("box");
 
 		for(var j=0; j < boxList.length; j++){
-
-			//============================================
-			//send AJAX request on click
-			// boxList[j].addEventListener('click', function() {
-			//     var id = event.target.id;
-
-			//     chrome.tabs.getSelected(null, function(tab) {
-			//       d = document;
-
-			//       //create form to send webpage data
-			//       var f = d.createElement('form');
-			//       f.action = 'https://media-bias-map.herokuapp.com/api/post';
-			//       f.method = 'post';
-
-			//       //add current URL to the form
-			//       var inputURL = d.createElement('input');
-			// 		      inputURL.type = 'hidden';
-			// 		      inputURL.name = 'url';
-			// 		      inputURL.value = tab.url;
-
-			// 	  	//add id / coordinates on grid to form
-			//       var coordinates = d.createElement('input');
-			// 		      coordinates.type = 'hidden';
-			// 		      coordinates.name = 'xy';
-			// 		      coordinates.value = id;
-
-			// 	  	var hostName = d.createElement('input');
-			// 		  	  hostName.type = 'hidden';
-			// 		  	  hostName.name = 'hostName';
-			// 		  	  hostName.value =  window.location.hostname;
-
-			// 	  	var topic = d.createElement('input');
-			// 	  			topic.type = 'hidden';
-			// 	  			topic.name = 'topic';
-			// 	  			topic.value = document.getElementById('topic-select').value;
-
-			// 	  	var addedBy = d.createElement('input');
-			// 	  			addedBy.type = 'hidden';
-			// 	  			addedBy.name = 'addedBy';
-			// 	  			addedBy.value =
-
-
-
-
-
-			// 	  //add inputs to form
-		 //      f.appendChild(inputURL);
-		 //      f.appendChild(coordinates);
-		 //      f.appendChild(hostName);
-		 //      f.appendChild(topic);
-
-
-			//       d.body.appendChild(f);
-			//       f.submit();
-
-			//       document.getElementById('map-cont').style.display = 'none';
-			// 	    document.getElementById('topic-select').style.display = 'none';
-			// 	    document.getElementById('post-submit-success').style.display = 'block';
-
-			//     });
-			// }, false);
 
 
 			//=====================================================
