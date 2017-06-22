@@ -1,10 +1,10 @@
 {
   "manifest_version": 2,
-  "name": "Media Bias Map",
-  "short_name": "Media Bias Map",
+  "name": "The Daily Gray Chrome Extension",
+  "short_name": "The Daily Gray",
   "author": "Ryan Yost",
-  "description": "Rate and add items to the Media Bias Map",
-  "version": "1.1.6",
+  "description": "Classify and add items to The Daily Gray",
+  "version": "1.1.7",
 
   "content_scripts": [
     {
